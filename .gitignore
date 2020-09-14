@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+
+# Depedency directories
+node_modules/
+
+# ENV variable
+.env
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Vscode setting
+.vscode
+
+# Mac file log
+.DS_Store
+
+# tmp
+tmp
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Build
+dist
