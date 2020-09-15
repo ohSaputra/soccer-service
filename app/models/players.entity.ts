@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinTable} from 'typeorm'
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinTable } from 'typeorm'
 import { Teams } from './teams.entity'
 
 export interface IPlayers {

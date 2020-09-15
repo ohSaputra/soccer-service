@@ -12,7 +12,7 @@ const PlayersService = {
    * @returns {Promise} Promise of created player
    */
   async create (params: IPlayers) {
-    const { 
+    const {
       name,
       dateOfBirth,
       countryOfBirth,
@@ -28,7 +28,7 @@ const PlayersService = {
       nationality,
       position,
       team,
-      lastUpdated: new Date
+      lastUpdated: new Date()
     })
   },
 
@@ -62,7 +62,7 @@ const PlayersService = {
 
   /**
    * find one player
-   * @param {number} id 
+   * @param {number} id
    * @returns {Promise} Promise of found player
    */
   async findOne (id: number) {

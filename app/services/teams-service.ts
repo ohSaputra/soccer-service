@@ -12,7 +12,7 @@ const TeamsService = {
    * @returns {Promise} Promise of created teams
    */
   async create (params: ITeams) {
-    const { 
+    const {
       name,
       tla,
       address,
@@ -26,7 +26,7 @@ const TeamsService = {
       address,
       email,
       founded,
-      lastUpdated: new Date
+      lastUpdated: new Date()
     })
   },
 
@@ -59,7 +59,7 @@ const TeamsService = {
 
   /**
    * find one team
-   * @param {number} id 
+   * @param {number} id
    * @returns {Promise} Promise of found team
    */
   async findOne (id: number) {

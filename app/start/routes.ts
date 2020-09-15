@@ -36,5 +36,4 @@ router.get('/health', (req, res) => res.json({ message: 'OK' }))
 // Api Documentation Endpoint
 router.use('', swagger)
 
-
 export default router

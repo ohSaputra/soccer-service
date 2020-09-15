@@ -9,7 +9,7 @@ const teams: any[] = []
  * - this function will generate data from mock data
  */
 export default async (): Promise<void> => {
-  for(const team of mockTeams) {
+  for (const team of mockTeams) {
     const createdTeam = await TeamsService.create({
       name: team.name,
       tla: team.tla,
@@ -19,7 +19,7 @@ export default async (): Promise<void> => {
     })
     teams.push(createdTeam.raw)
   }
-  for(const player of mockPlayers) {
+  for (const player of mockPlayers) {
     const rand = Math.floor(Math.random() * 5)
     await PlayersService.create({
       name: player.name,
