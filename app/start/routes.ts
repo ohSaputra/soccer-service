@@ -27,7 +27,7 @@ const router = Router()
 // Player Endpoint
 router.use('/player', playerRouter)
 
-// Player Endpoint
+// Team Endpoint
 router.use('/team', teamRouter)
 
 // Health-check Endpoint
