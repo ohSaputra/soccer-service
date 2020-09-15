@@ -13,7 +13,7 @@ DatabaseService.connect()
     await DatabaseService.populateData()
     app.listen(env.app.port, () => {
       console.log('\x1b[36m%s\x1b[0m', `Express server started at http://localhost:${env.app.port}/api`)
-      console.log('\x1b[36m%s\x1b[0m', `Swagger UI hosted at http://localhost:${env.app.port}/api/docs`)
+      console.log('\x1b[36m%s\x1b[0m', `Endpoint documentation hosted at http://localhost:${env.app.port}/api/docs`)
     })
   })
   .catch(e => { throw e })

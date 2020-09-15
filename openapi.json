@@ -1,0 +1,562 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Soccer Service Enpoints",
+    "version": "1.0.0",
+    "description": "Soccer Service Enpoints",
+    "contact": {
+      "email": "utomo.hendra.saputra@gmail.com",
+      "name": "Utomo Hendra"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8888/api/"
+    }
+  ],
+  "tags": [],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "soccer"
+        ],
+        "summary": "Check system health",
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/player": {
+      "post": {
+        "tags": [
+          "player"
+        ],
+        "summary": "Returns a list of players",
+        "operationId": "players-get-all",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "documents": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PlayersSchema"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "skip": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "player"
+        ],
+        "summary": "Add new player",
+        "operationId": "add-new-player",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftPlayersSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/player/{id}": {
+      "get": {
+        "tags": [
+          "player"
+        ],
+        "summary": "Reads a player data",
+        "operationId": "read-a-player",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "player id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayersSchema"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "player"
+        ],
+        "summary": "Update a player data",
+        "operationId": "update-a-player",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "player id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftPlayersSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "player"
+        ],
+        "summary": "Delete a player",
+        "operationId": "delete-a-player",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "player id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/team": {
+      "post": {
+        "tags": [
+          "team"
+        ],
+        "summary": "Returns a list of teams",
+        "operationId": "teams-get-all",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TeamsSchema"
+                      }
+                    },
+                    "count": {
+                      "type": "integer"
+                    },
+                    "skip": {
+                      "type": "integer"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "team"
+        ],
+        "summary": "Add new team",
+        "operationId": "add-new-team",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftTeamsSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "raw": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/team/{id}": {
+      "get": {
+        "tags": [
+          "team"
+        ],
+        "summary": "Reads a team data",
+        "operationId": "read-a-team",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "team id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamsSchema"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "team"
+        ],
+        "summary": "Update a team data",
+        "operationId": "update-a-team",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "team id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftTeamsSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "team"
+        ],
+        "summary": "Delete a team",
+        "operationId": "delete-a-team",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "team id",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "OK"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ListSchema": {
+        "type": "object",
+        "properties": {
+          "skip": {
+            "type": "integer",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "example": 5
+          }
+        }
+      },
+      "DraftPlayersSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string"
+          },
+          "countryOfBirth": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "team": {
+            "type": "number"
+          }
+        }
+      },
+      "PlayersSchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DraftPlayersSchema"
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "lastUpdated": {
+            "type": "string"
+          }
+        }
+      },
+      "DraftTeamsSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tla": {
+            "type": "string"
+          },
+          "founded": {
+            "type": "number"
+          },
+          "address": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "TeamsSchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DraftTeamsSchema"
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "lastUpdated": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
