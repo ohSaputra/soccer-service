@@ -12,7 +12,6 @@ const DatabaseService = {
   },
 
   async close () {
-    await DatabaseService.clear()
     await getConnection().close()
   },
 
@@ -24,10 +23,13 @@ const DatabaseService = {
   },
 
   async populateData () {
-    logger.info('Populating data from mock data ... ')
-    await populateData()
-    console.info('Successfully load data.\n')
-    console.info('Starting Express Server...')
+    const [players, count] = await PlayersService.list({ skip: 0, limit: 5 })
+    if (count === 0) {
+      logger.info('Populating data from mock data ... ')
+      await populateData()
+      console.info('Successfully load data.\n')
+      console.info('Starting Express Server...')
+    }
   }
 }
 
