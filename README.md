@@ -1,11 +1,11 @@
 
 <!-- Dependency Status -->
-<a href="https://david-dm.org/ohsaputra/photo-backend">
-  <img src="https://david-dm.org/ohsaputra/photo-backend.svg" alt="Dependency Status" />
+<a href="https://david-dm.org/ohsaputra/soccer-service">
+  <img src="https://david-dm.org/ohsaputra/soccer-service.svg" alt="Dependency Status" />
 </a>
 <!-- devDependency Status -->
-<a href="https://david-dm.org/ohsaputra/photo-backend?type=dev">
-  <img src="https://david-dm.org/ohsaputra/photo-backend/dev-status.svg" alt="devDependency Status" />
+<a href="https://david-dm.org/ohsaputra/soccer-service?type=dev">
+  <img src="https://david-dm.org/ohsaputra/soccer-service/dev-status.svg" alt="devDependency Status" />
 </a>
 
 # Backend Assignment
