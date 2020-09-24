@@ -9,7 +9,7 @@
 </a>
 
 # Backend Assignment
-This repo is a backend assignment test for KitaBisa.
+This repo is a backend assignment test.
 
 ## ❯ Getting Started
 
